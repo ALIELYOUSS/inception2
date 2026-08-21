@@ -20,18 +20,13 @@ else
     	sleep 2
 	done
 	echo "[+] Database is ready!"
-
-
 	wp core download --allow-root
-
 	wp config create --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD --dbhost=$SQL_HOST --allow-root
-
 	wp core install --url=$WP_URL --title=$WP_TITLE --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL --skip-email --allow-root
-
 	wp user create $WP_USER $WP_EMAIL --role=$WP_USER_ROLE --user_pass=$WP_PASS --allow-root
-
 	wp option update home $WP_URL --allow-root
 	wp option update siteurl $WP_URL --allow-root
+
 fi
 
 chown -R www-data:www-data .
