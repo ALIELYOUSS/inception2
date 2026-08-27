@@ -3,6 +3,9 @@
 
 set -x 
 
+SQL_PASSWORD=$(cat /run/secrets/SQL_PASSWORD)
+WP_ADMIN_PASS=$(cat /run/secrets/WP_ADMIN_PASS)
+WP_PASS=$(cat /run/secrets/WP_PASS)
 
 if [ -f wp-config.php ] ; then
  	echo "Wordpress is already installed!";

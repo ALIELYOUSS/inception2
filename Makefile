@@ -19,7 +19,7 @@ check:
 	@docker compose --file $(compose) ps -a
 
 rm-vlms:
-	@rm -rf $(HOME)/data/*/* || true
+	@sudo rm -rf $(HOME)/data
 
 clean: down 
 	@docker image rm wordpress:alel-you nginx:alel-you mariadb:alel-you 2>/dev/null || true
